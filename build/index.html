@@ -273,6 +273,12 @@
                   <li>
                     <a href="#update-sector" class="toc-h2 toc-link" data-title="update-sector">Update Sector</a>
                   </li>
+                  <li>
+                    <a href="#industry" class="toc-h2 toc-link" data-title="industry">Industry</a>
+                  </li>
+                  <li>
+                    <a href="#update-industry" class="toc-h2 toc-link" data-title="update-industry">Update Industry</a>
+                  </li>
               </ul>
           </li>
       </div>
@@ -1013,7 +1019,7 @@ Authorization will expire and update after 24 hours .
 <h2 id='update-sector'>Update Sector</h2>
 <p>Update Sector.</p>
 <h3 id='http-request-9'>HTTP Request</h3>
-<p><code>PUT http://[host]/api/ProjectType/Update/<updatedby></code></p>
+<p><code>PUT http://[host]/api/Sector/Update/<updatedby></code></p>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
   http://[host]/api/Sector/Update/&lt;updatedby&gt; <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
@@ -1055,6 +1061,151 @@ Authorization will expire and update after 24 hours .
 <tr>
 <td>IndustryName</td>
 <td>String</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>IsDeleted</td>
+<td>Boolean</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>UpdateBy</td>
+<td>Integer</td>
+<td>yes</td>
+</tr>
+</tbody></table>
+<h2 id='industry'>Industry</h2>
+<p>Number of Industry list existing</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>GET http://[host]/api/Industry/ListAll/0</code></p>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  http://[host]/api/Industry/ListAll/0 <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NDA4MDcyOTksImV4cCI6MTU0MDg5MzY5OX0.ElthDyZJPXQ1xRMNjDU39AIXyaaB4z8V2TsMlPDS0nQ'</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>The JSON encoded response on successful account creation</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+        <span class="s2">"IndustryID"</span>: 1,
+        <span class="s2">"IndustryName"</span>: <span class="s2">"Energy"</span>,
+        <span class="s2">"ImagePath"</span>: <span class="s2">"dsjkh/sdfds.jpg"</span>,
+        <span class="s2">"IsDeleted"</span>: <span class="nb">false</span>,
+        <span class="s2">"CreateBy"</span>: 1,
+        <span class="s2">"CreateDate"</span>: <span class="s2">"2018-10-301:55:02.263Z"</span>,
+        <span class="s2">"CreateIP"</span>: <span class="s2">"::1"</span>,
+        <span class="s2">"UpdateBy"</span>: 1,
+        <span class="s2">"UpdateDate"</span>: <span class="s2">"2018-10-301:56:42.840Z"</span>,
+        <span class="s2">"UpdateIP"</span>: <span class="s2">"::1"</span>
+    <span class="o">}</span><span class="sb">```</span>
+
+<span class="c">### Parameters</span>
+
+Argument | Type 
+-------|-------
+IndustryName| String 
+ImagePath| Image    
+IsDeleted| Boolean 
+CreateBy| Integer 
+
+<span class="c">## Add Industry</span>
+
+Add new Industry
+
+<span class="c">### HTTP Request</span>
+&lt;code&gt;POST http://[host]/api/Industry/Add&lt;/code&gt;
+
+
+<span class="sb">```</span>shell
+curl -X POST <span class="se">\</span>
+  http://[host]/api/Industry/Add <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NDA4MDcyOTksImV4cCI6MTU0MDg5MzY5OX0.ElthDyZJPXQ1xRMNjDU39AIXyaaB4z8V2TsMlPDS0nQ'</span> <span class="se">\</span>
+  -d <span class="s1">'
+        {
+        "IndustryName": "RTA",
+        "ImagePath": "folder/image.jpg",
+        "IsDeleted": false,
+        "CreateBy": 1
+    }```
+
+&gt; The JSON encoded response on successful account creation
+
+```shell
+{
+    "result : success"
+    }
+
+</span></code></pre><h3 id='parameters-10'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>IndustryName</td>
+<td>String</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ImagePath</td>
+<td>Image</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>IsDeleted</td>
+<td>Boolean</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>CreateBy</td>
+<td>Integer</td>
+<td>yes</td>
+</tr>
+</tbody></table>
+<h2 id='update-industry'>Update Industry</h2>
+<p>Update Industry.</p>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><code>PUT http://[host]/api/Industry/Update/<updatedby></code></p>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+  http://[host]/api/Industry/Update/&lt;updatedby&gt; <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NDA4MDcyOTksImV4cCI6MTU0MDg5MzY5OX0.ElthDyZJPXQ1xRMNjDU39AIXyaaB4z8V2TsMlPDS0nQ'</span> <span class="se">\</span>
+
+  -d <span class="s1">'      {
+        "IndustryName": "IT Industry",
+        "ImagePath": "folder/image.jpg",
+        "IsDeleted": false,
+        "UpdateBy": 1
+    }'</span>
+</code></pre>
+<blockquote>
+<p>The JSON encoded response on successful account creation</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"result : success"</span>
+    <span class="o">}</span>
+</code></pre><h3 id='parameters-11'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>IndustryName</td>
+<td>String</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ImagePath</td>
+<td>Image</td>
 <td>yes</td>
 </tr>
 <tr>
